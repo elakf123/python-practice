@@ -1,14 +1,39 @@
-operation = input("Какой знак у операции которую вы хотите выполнить? ")
-x = float(input("Первое число: "))
-y = float(input("Второе число: "))
-if (operation == "+"):
-    print(x+y)
-elif (operation == "-"):
-    print(x-y)
-elif (operation == "*"):
-    print(x*y)
-elif (operation == "/"):
-    if (y != 0):
-        print(x/y)
-    else: print("Деление на 0")
-else: print("Ошибка операции!")
+def read_number(prompt):
+    while True:
+        try:
+            number = float(input(prompt))
+            return number
+        except ValueError:
+            print("Не число!")
+
+def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    if b == 0:
+        return None
+    else:
+        return a / b
+
+def main():
+    a = read_number("Введите первое число: ")
+    b = read_number("Введите второе число: ")
+    sign = input("Знак операции: ")
+    signs = {"+": add, "-": subtract, "*": multiply, "/": divide}
+    if sign in signs:
+        result = signs[sign](a, b)
+        if result is None:
+            print("Деление на 0")
+        else:
+            print(result)
+    else:
+        print("Неизвестный знак")
+
+if __name__ == "__main__":
+    main()

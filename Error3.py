@@ -27,7 +27,7 @@ def main():
     signs = {"+": add, "-": subtract, "*": multiply, "/": divide}
     if sign in signs:
         result = signs[sign](a, b)
-        if result == None:
+        if result is None:
             print("Деление на 0")
         else: print(result)
     else: print("Неизвестный знак")
