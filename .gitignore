@@ -1,2 +1,4 @@
 tasks.json
 tasks.db
+__pycache__/
+.venv/
